@@ -1,0 +1,45 @@
+.product {
+    height: 508px;
+    width: 300px;
+    border: 1px solid skyblue;
+    border-radius: 10px;
+
+}
+
+.product:hover {
+    border: 1px solid pink;
+}
+
+.product img {
+    height: 286px;
+    width: 286px;
+    margin: 7px;
+    border-radius: 10px;
+}
+
+.product-name {
+    margin: 0px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+
+    color: #0E161A;
+}
+
+.product-price {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    margin: 5px;
+    color: #0E161A;
+}
+
+.product p{
+    margin: 10px;
+}
