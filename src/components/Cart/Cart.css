@@ -1,0 +1,12 @@
+.cart{
+    background-color: lightpink;
+    padding: 50px 20px;
+    border-radius: 10px;
+    position: sticky;
+    top: 188px;
+
+}
+.cart h3{
+    text-align: center;
+    text-decoration: underline;
+}

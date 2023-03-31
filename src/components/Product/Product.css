@@ -3,6 +3,8 @@
     width: 300px;
     border: 1px solid skyblue;
     border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
 
 }
 
@@ -40,6 +42,20 @@
     color: #0E161A;
 }
 
-.product p{
-    margin: 10px;
+
+.product-info{
+    padding-left: 10px;
+}
+
+.cart-btn {
+    width: 100%;
+    background: #FFE0B3;
+    border: 1px solid #95A0A7;
+    border-radius: 0px 0px 8px 8px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.cart-btn:hover {
+    background: orange;
 }
