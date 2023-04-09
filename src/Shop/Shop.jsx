@@ -48,7 +48,9 @@ const Shop = () => {
                         key={product.id}
                         product={product}
                         productAddToCart={productAddToCart}
-                    ></Product>)
+                    ></Product>
+                    
+                    )
                 }
             </div>
             <div className='cart-container'>

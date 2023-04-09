@@ -5,17 +5,22 @@ const Cart = (prop) => {
     // console.log(cart)
     let total = 0;
     let totalShipping = 0;
+    let quantity = 0;
     for (const product of cart) {
         // console.log(product.price)
-        total = total + product.price;
-        totalShipping = totalShipping + product.shipping
+        if(product.quantity===0){
+            product.quantity = 1
+        }
+        total = total + product.price * product.quantity
+            totalShipping = totalShipping + product.shipping
+        quantity = quantity + product.quantity
     }
     const tax = total * 5 / 100
     const totalCost = total + totalShipping + tax;
     return (
         <div className='cart'>
             <h3>Cart</h3>
-            <h4>Product Quantity: {cart.length}</h4>
+            <h4>Product Quantity: {quantity}</h4>
             <h4>Product Price: ${total}</h4>
             <h4>Shipping: ${totalShipping}</h4>
             <h4>Tax: ${tax.toFixed(2)} <span>(5% of Product)</span></h4>
