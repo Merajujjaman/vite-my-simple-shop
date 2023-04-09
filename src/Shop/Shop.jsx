@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../components/Cart/Cart';
 import Product from '../components/Product/Product';
-import { addToDb, getShoppingCart } from '../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../utilities/fakedb';
 import './Shop.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
+
+
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
@@ -39,6 +44,11 @@ const Shop = () => {
         addToDb(product.id)
     }
     // console.log(cart)
+    const clearCart = ()=>{
+        setCart([])
+        deleteShoppingCart()
+    } 
+
 
     return (
         <div className='shop-container'>
@@ -54,7 +64,15 @@ const Shop = () => {
                 }
             </div>
             <div className='cart-container'>
-                <Cart cart={cart}></Cart>
+                <Cart 
+                clearCart={clearCart}
+                cart={cart}>
+                     {/* common dymanic button */}
+                    <Link to='/order' className='shared-btn' >
+                        <button className='shared-link'>Review Order</button>
+                        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
