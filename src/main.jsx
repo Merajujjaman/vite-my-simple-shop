@@ -14,19 +14,21 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import loadCart from './components/Loader/Loader';
 import Proceed from './components/Proceed/Proceed';
+import Register from './components/Register/Register';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<Home></Home>,
-    children:[
+    path: '/',
+    element: <Home></Home>,
+    children: [
       {
         path: '/',
         element: <Shop></Shop>
       },
       {
         path: '/order',
-        element:<Order></Order>,
+        element: <Order></Order>,
         loader: loadCart
       },
       {
@@ -34,24 +36,30 @@ const router = createBrowserRouter([
         element: <Review></Review>
       },
       {
-        path:'inventory',
+        path: 'inventory',
         element: <Inventory></Inventory>
       },
       {
-        path:'login',
+        path: 'register',
+        element: <Register></Register>
+      },
+      {
+        path: 'login',
         element: <Login></Login>
       },
       {
-        path:'proceed',
-        element:<Proceed></Proceed>
+        path: 'proceed',
+        element: <Proceed></Proceed>
       }
     ]
   }
-  
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
