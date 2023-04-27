@@ -65,3 +65,12 @@
 .form-container p {
     text-align: center;
 }
+
+.error-text{
+    color: rgba(255, 0, 0, 0.619);
+    
+}
+
+.success-text{
+    color:green;
+}

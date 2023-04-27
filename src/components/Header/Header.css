@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 100px;
-    
+
 }
 
 .header a {
@@ -17,4 +17,9 @@
 
 .header a:hover {
     color: orange;
+}
+
+.user-text {
+    color: white;
+    margin: 0px 10px;
 }
