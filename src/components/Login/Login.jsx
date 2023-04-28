@@ -7,10 +7,11 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [show, setShow] = useState(false)
     const Navigate = useNavigate()
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/' ;
-    
+    const from = location.state?.from?.pathname || '/';
+
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -21,7 +22,7 @@ const Login = () => {
         // console.Log(email, password)
 
         signIn(email, password)
-        
+
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -48,7 +49,12 @@ const Login = () => {
 
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" placeholder='password' required />
+                    <input type={show ? 'text' : 'password'} name="password" placeholder='password' required />
+                    <p onClick={() => setShow(!show)}><small>
+                        {
+                            show ? <span>Hide</span> : <span>Show</span>
+                        }
+                    </small></p>
                 </div>
 
                 <input className='submit-btn' type="submit" value="Login" />
