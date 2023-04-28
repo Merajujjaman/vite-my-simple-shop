@@ -16,6 +16,7 @@ import loadCart from './components/Loader/Loader';
 import Proceed from './components/Proceed/Proceed';
 import Register from './components/Register/Register';
 import AuthProvider from './providers/AuthProvider';
+import PrivateRout from './Routs/PrivateRout';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'inventory',
-        element: <Inventory></Inventory>
+        element: <PrivateRout><Inventory></Inventory></PrivateRout>
       },
       {
         path: 'register',
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'proceed',
-        element: <Proceed></Proceed>
+        element: <PrivateRout><Proceed></Proceed></PrivateRout>
       }
     ]
   }

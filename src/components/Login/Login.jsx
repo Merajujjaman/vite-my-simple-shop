@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const Navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/' ;
+    
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -17,12 +21,14 @@ const Login = () => {
         // console.Log(email, password)
 
         signIn(email, password)
+        
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 setError('')
                 setSuccess('Welcome to the Ema-John')
                 form.reset()
+                Navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
