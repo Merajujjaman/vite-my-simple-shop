@@ -34,3 +34,11 @@
     background: #FF9900;
     color:white;
 }
+.pagination{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pagination .selected{
+    background-color: #FF9900;
+}
